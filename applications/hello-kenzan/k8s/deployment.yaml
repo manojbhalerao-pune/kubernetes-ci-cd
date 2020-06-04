@@ -24,7 +24,7 @@ spec:
   selector:
      matchLabels:
          app: hello-kenzan
-strategy:
+  strategy:
     type: Recreate
   template:
     metadata:
