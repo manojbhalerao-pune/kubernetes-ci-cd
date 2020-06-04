@@ -14,14 +14,17 @@ spec:
   type: NodePort
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-kenzan
   labels:
     app: hello-kenzan
 spec:
-  strategy:
+  selector:
+     matchLabels:
+         app: hello-kenzan
+strategy:
     type: Recreate
   template:
     metadata:
