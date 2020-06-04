@@ -23,6 +23,6 @@ node {
     stage "Deploy"
         echo  's#__IMAGE__#'$BUILDIMG'#'
         cat applications/hello-kenzan/k8s/deployment.yaml
-        kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'kenzan_kubeconfig'
+        sh "sed 's#__IMAGE__#'$BUILDIMG'#' applications/hello-kenzan/k8s/deployment.yaml | kubectl apply -f -"
         
 }
